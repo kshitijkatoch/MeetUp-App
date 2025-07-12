@@ -14,8 +14,10 @@ function App() {
 
   // const filteredEvents = eventType === "Both" ? data : data.filter((e) => e.type === eventType);
 
-  const filteredEvents = data
-    ?.filter((e) => eventType === "Both" || e.type === eventType)
+  const events = Array.isArray(data) ? data : [];
+
+  const filteredEvents = events
+    .filter((e) => eventType === "Both" || e.type === eventType)
     .filter((e) => {
       const titleMatch = e.title
         .toLowerCase()
