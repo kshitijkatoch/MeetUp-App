@@ -14,7 +14,7 @@ function App() {
 
   // const filteredEvents = eventType === "Both" ? data : data.filter((e) => e.type === eventType);
 
-  const filteredEvents = events
+  const filteredEvents = data
     .filter((e) => eventType === "Both" || e.type === eventType)
     .filter((e) => {
       const titleMatch = e.title
