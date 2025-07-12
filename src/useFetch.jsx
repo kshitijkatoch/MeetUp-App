@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-const useFetch = (url, initialData) => {
+const useFetch = (url, initialData = []) => {
   const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -8,7 +8,7 @@ const useFetch = (url, initialData) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setData(Array.isArray(data) ? data : []);
       })
       .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
